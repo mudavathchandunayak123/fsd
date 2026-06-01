@@ -1,0 +1,249 @@
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Survey & Election Management</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+        }
+
+        /* HEADER */
+
+        header{
+            background:#1e3a5f;
+            color:white;
+            padding:20px 60px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        /* NAVIGATION */
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:30px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#ffd166;
+        }
+
+        /* HERO SECTION */
+
+        .hero{
+            height:85vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            text-align:center;
+            background:linear-gradient(rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            color:white;
+            padding:20px;
+        }
+
+        .hero h1{
+            font-size:55px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:20px;
+            width:70%;
+            line-height:1.8;
+            margin-bottom:30px;
+        }
+
+        /* BUTTONS */
+
+        .buttons{
+            display:flex;
+            gap:20px;
+        }
+
+        .btn{
+            text-decoration:none;
+            background:#ffd166;
+            color:black;
+            padding:14px 30px;
+            border-radius:8px;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#ffb703;
+            transform:scale(1.05);
+        }
+
+        /* ANNOUNCEMENT */
+
+        .announcement{
+            background:white;
+            padding:50px;
+            text-align:center;
+        }
+
+        .announcement h2{
+            color:#1e3a5f;
+            margin-bottom:20px;
+            font-size:35px;
+        }
+
+        .announcement p{
+            font-size:18px;
+            color:#444;
+            line-height:1.8;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#1e3a5f;
+            color:white;
+            text-align:center;
+            padding:18px;
+            font-size:16px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            header{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:38px;
+            }
+
+            .hero p{
+                width:100%;
+            }
+
+            .buttons{
+                flex-direction:column;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            Society Survey & Election Management
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="register.html">Register</a></li>
+
+                <li><a href="login.html">Login</a></li>
+
+                <li><a href="polls.html">Polls</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <h1>Welcome Residents</h1>
+
+        <p>
+            Participate in society surveys, vote for representatives,
+            share your feedback, and help improve the residential community
+            through a transparent election management system.
+        </p>
+
+        <div class="buttons">
+
+            <a href="register.html" class="btn">Register</a>
+
+            <a href="login.html" class="btn">Login</a>
+
+            <a href="polls.html" class="btn">View Polls</a>
+
+        </div>
+
+    </section>
+
+    <!-- ANNOUNCEMENT -->
+
+    <section class="announcement">
+
+        <h2>Society Representative Election 2026</h2>
+
+        <p>
+            The annual society representative election has officially begun.
+            Residents can now participate in surveys, explore candidate
+            profiles, and cast their votes online for positions such as
+            President, Secretary, Treasurer, and Committee Heads.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Society Survey & Election Management System
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
