@@ -1,52 +1,625 @@
+```html id="g6x9wp"
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Results</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Election Results</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           GOOGLE FONT
+        ========================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* =========================
+           GLOBAL STYLING
+        ========================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+            overflow-x:hidden;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header{
+            width:100%;
+            background:linear-gradient(135deg,#1e3a8a,#2563eb);
+            padding:18px 8%;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            font-weight:700;
+        }
+
+        nav ul{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#dbeafe;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero{
+            height:50vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            background:linear-gradient(rgba(30,58,138,0.75),
+            rgba(37,99,235,0.75)),
+            url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200') center/cover;
+            padding:20px;
+        }
+
+        .hero h1{
+            font-size:55px;
+            margin-bottom:20px;
+            animation:slideDown 1s ease;
+        }
+
+        .hero p{
+            font-size:20px;
+            max-width:700px;
+            animation:fadeIn 2s ease;
+        }
+
+        /* =========================
+           RESULTS SECTION
+        ========================== */
+
+        .results-section{
+            width:90%;
+            margin:70px auto;
+        }
+
+        .results-title{
+            text-align:center;
+            font-size:42px;
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        .results-subtitle{
+            text-align:center;
+            color:#555;
+            margin-bottom:50px;
+            font-size:18px;
+        }
+
+        /* =========================
+           RESULT CARDS
+        ========================== */
+
+        .results-cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:35px;
+            margin-bottom:60px;
+        }
+
+        .result-card{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            transition:0.4s ease;
+            position:relative;
+            overflow:hidden;
+            animation:fadeUp 1s ease;
+        }
+
+        .result-card::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:6px;
+            background:linear-gradient(90deg,#2563eb,#1e3a8a);
+        }
+
+        .result-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 18px 35px rgba(0,0,0,0.15);
+        }
+
+        .winner{
+            border:3px solid #10b981;
+        }
+
+        .winner-badge{
+            display:inline-block;
+            background:#10b981;
+            color:white;
+            padding:8px 18px;
+            border-radius:30px;
+            margin-bottom:15px;
+            font-size:14px;
+            font-weight:600;
+        }
+
+        .result-card h2{
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        .result-card p{
+            color:#555;
+            margin-bottom:12px;
+        }
+
+        /* =========================
+           PROGRESS BAR
+        ========================== */
+
+        .progress{
+            width:100%;
+            height:24px;
+            background:#e5e7eb;
+            border-radius:30px;
+            overflow:hidden;
+            margin-top:10px;
+        }
+
+        .progress-bar{
+            height:100%;
+            border-radius:30px;
+            text-align:center;
+            color:white;
+            line-height:24px;
+            font-size:14px;
+            font-weight:600;
+            animation:progressAnimation 2s ease;
+        }
+
+        .blue{
+            background:linear-gradient(90deg,#2563eb,#1e40af);
+            width:60%;
+        }
+
+        .green{
+            background:linear-gradient(90deg,#10b981,#059669);
+            width:40%;
+        }
+
+        .orange{
+            background:linear-gradient(90deg,#f59e0b,#d97706);
+            width:75%;
+        }
+
+        /* =========================
+           TABLE
+        ========================== */
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            animation:fadeUp 1s ease;
+        }
+
+        table th{
+            background:#1e3a8a;
+            color:white;
+            padding:18px;
+            font-size:16px;
+        }
+
+        table td{
+            padding:16px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        table tr:hover{
+            background:#f1f5f9;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer{
+            background:#1e3a8a;
+            color:white;
+            text-align:center;
+            padding:25px;
+            margin-top:60px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes slideDown{
+
+            from{
+                transform:translateY(-50px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeUp{
+
+            from{
+                transform:translateY(50px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+        @keyframes progressAnimation{
+
+            from{
+                width:0;
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media(max-width:992px){
+
+            .results-cards{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .hero h1{
+                font-size:45px;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .results-cards{
+                grid-template-columns:1fr;
+            }
+
+            .hero h1{
+                font-size:36px;
+            }
+
+            .hero p{
+                font-size:17px;
+            }
+
+            .results-title{
+                font-size:32px;
+            }
+
+            table{
+                display:block;
+                overflow-x:auto;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .hero h1{
+                font-size:28px;
+            }
+
+            .result-card{
+                padding:22px;
+            }
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<div class="container">
+    <!-- HEADER -->
 
-    <h1>Election Results</h1>
+    <header>
 
-    <table class="table">
+        <div class="navbar">
 
-        <tr>
-            <th>Candidate</th>
-            <th>Votes</th>
-            <th>Percentage</th>
-        </tr>
+            <div class="logo">
+                Society Survey
+            </div>
 
-        <tr>
-            <td>Rahul Sharma</td>
-            <td>120</td>
+            <nav>
 
-            <td>
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="dashboard.html">Dashboard</a></li>
+
+                    <li><a href="polls.html">Polls</a></li>
+
+                    <li><a href="results.html">Results</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            Election Results
+        </h1>
+
+        <p>
+            View the latest society election winners and voting statistics
+        </p>
+
+    </section>
+
+    <!-- RESULTS SECTION -->
+
+    <section class="results-section">
+
+        <h1 class="results-title">
+            Society Election Results
+        </h1>
+
+        <p class="results-subtitle">
+            Transparent voting results for all society representatives
+        </p>
+
+        <!-- RESULT CARDS -->
+
+        <div class="results-cards">
+
+            <!-- PRESIDENT -->
+
+            <div class="result-card winner">
+
+                <div class="winner-badge">
+                    Winner
+                </div>
+
+                <h2>
+                    President Election
+                </h2>
+
+                <p>
+                    <strong>Candidate:</strong> Rahul Sharma
+                </p>
+
+                <p>
+                    <strong>Votes Received:</strong> 120
+                </p>
+
+                <p>
+                    <strong>Vote Percentage:</strong> 60%
+                </p>
+
                 <div class="progress">
-                    <div class="progress-bar" style="width:60%">
+
+                    <div class="progress-bar blue">
                         60%
                     </div>
+
                 </div>
-            </td>
-        </tr>
 
-        <tr>
-            <td>Priya Reddy</td>
-            <td>80</td>
+            </div>
 
-            <td>
+            <!-- SECRETARY -->
+
+            <div class="result-card">
+
+                <h2>
+                    Secretary Election
+                </h2>
+
+                <p>
+                    <strong>Candidate:</strong> Priya Reddy
+                </p>
+
+                <p>
+                    <strong>Votes Received:</strong> 80
+                </p>
+
+                <p>
+                    <strong>Vote Percentage:</strong> 40%
+                </p>
+
                 <div class="progress">
-                    <div class="progress-bar" style="width:40%">
+
+                    <div class="progress-bar green">
                         40%
                     </div>
+
                 </div>
-            </td>
-        </tr>
 
-    </table>
+            </div>
 
-</div>
+            <!-- TREASURER -->
+
+            <div class="result-card winner">
+
+                <div class="winner-badge">
+                    Winner
+                </div>
+
+                <h2>
+                    Treasurer Election
+                </h2>
+
+                <p>
+                    <strong>Candidate:</strong> Kiran Kumar
+                </p>
+
+                <p>
+                    <strong>Votes Received:</strong> 150
+                </p>
+
+                <p>
+                    <strong>Vote Percentage:</strong> 75%
+                </p>
+
+                <div class="progress">
+
+                    <div class="progress-bar orange">
+                        75%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RESULT TABLE -->
+
+        <table>
+
+            <tr>
+
+                <th>Poll Name</th>
+
+                <th>Candidate</th>
+
+                <th>Votes</th>
+
+                <th>Percentage</th>
+
+            </tr>
+
+            <tr>
+
+                <td>President Election</td>
+
+                <td>Rahul Sharma</td>
+
+                <td>120</td>
+
+                <td>60%</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Secretary Election</td>
+
+                <td>Priya Reddy</td>
+
+                <td>80</td>
+
+                <td>40%</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Treasurer Election</td>
+
+                <td>Kiran Kumar</td>
+
+                <td>150</td>
+
+                <td>75%</td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Society Survey & Representative Election Management System
+        </p>
+
+    </footer>
 
 </body>
+
 </html>
+```

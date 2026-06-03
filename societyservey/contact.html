@@ -1,42 +1,322 @@
+```html id="m2q7xp"
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Page</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    padding:18px 8%;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#dbeafe;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(rgba(30,58,138,0.75),
+    rgba(37,99,235,0.75)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200') center/cover;
+    color:white;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    width:90%;
+    max-width:1100px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+/* CONTACT FORM */
+
+.contact-form{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-form h2{
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,0.3);
+}
+
+textarea{
+    resize:none;
+    height:130px;
+}
+
+.submit-btn{
+    padding:15px;
+    border:none;
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+    color:white;
+    border-radius:40px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.03);
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-info h2{
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    margin-bottom:20px;
+    color:#555;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .contact-section{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="form-container">
+<header>
 
-    <h2>Contact Society Committee</h2>
+<div class="navbar">
 
-    <form>
+<div class="logo">
+Society Survey
+</div>
 
-        <input type="text" placeholder="Your Name" required>
+<nav>
 
-        <input type="email" placeholder="Your Email" required>
+<ul>
 
-        <input type="text" placeholder="Subject" required>
+<li><a href="index.html">Home</a></li>
 
-        <textarea rows="5" placeholder="Message"></textarea>
+<li><a href="dashboard.html">Dashboard</a></li>
 
-        <button type="submit">Submit</button>
+<li><a href="polls.html">Polls</a></li>
 
-    </form>
+<li><a href="results.html">Results</a></li>
 
-    <br>
+<li><a href="contact.html">Contact</a></li>
 
-    <h3>Society Office</h3>
+</ul>
 
-    <p>Address: Green Valley Apartments</p>
-
-    <p>Email: society@gmail.com</p>
-
-    <p>Phone: +91 9876543210</p>
-
-    <p>Office Timings: 9AM - 6PM</p>
+</nav>
 
 </div>
 
+</header>
+
+<section class="hero">
+
+<h1>
+Contact Society Committee
+</h1>
+
+<p>
+Reach out for support, feedback or society related queries
+</p>
+
+</section>
+
+<section class="contact-section">
+
+<div class="contact-form">
+
+<h2>
+Send Message
+</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<input type="text" placeholder="Subject">
+
+<textarea placeholder="Enter your message"></textarea>
+
+<button class="submit-btn">
+
+Submit Message
+
+</button>
+
+</form>
+
+</div>
+
+<div class="contact-info">
+
+<h2>
+Contact Information
+</h2>
+
+<p>
+<strong>Address:</strong><br>
+Green Valley Society, Hyderabad
+</p>
+
+<p>
+<strong>Email:</strong><br>
+society@gmail.com
+</p>
+
+<p>
+<strong>Phone:</strong><br>
++91 9876543210
+</p>
+
+<p>
+<strong>Office Timings:</strong><br>
+9:00 AM - 6:00 PM
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Society Survey & Election Management System
+</p>
+
+</footer>
+
 </body>
+
 </html>
+```

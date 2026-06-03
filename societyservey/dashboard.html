@@ -1,40 +1,311 @@
+```html id="r5k8zn"
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    padding:18px 8%;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#dbeafe;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(rgba(30,58,138,0.75),
+    rgba(37,99,235,0.75)),
+    url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200') center/cover;
+    color:white;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+/* DASHBOARD SECTION */
+
+.dashboard{
+    width:90%;
+    margin:60px auto;
+}
+
+.dashboard-title{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:40px;
+    font-size:38px;
+}
+
+/* CARDS */
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#555;
+}
+
+/* ANNOUNCEMENTS */
+
+.announcements{
+    margin-top:60px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.announcements h2{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+.announcements ul{
+    padding-left:20px;
+}
+
+.announcements li{
+    margin-bottom:12px;
+    color:#555;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .dashboard-title{
+        font-size:30px;
+    }
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
+<header>
 
-    <h1>Welcome Resident!</h1>
+<div class="navbar">
 
-    <div class="cards">
+<div class="logo">
+Society Survey
+</div>
 
-        <div class="card">
-            <h3>Active Surveys</h3>
-            <p>5 Surveys Available</p>
-        </div>
+<nav>
 
-        <div class="card">
-            <h3>Active Polls</h3>
-            <p>3 Elections Running</p>
-        </div>
+<ul>
 
-        <div class="card">
-            <h3>Candidates</h3>
-            <p>12 Candidates</p>
-        </div>
+<li><a href="index.html">Home</a></li>
 
-        <div class="card">
-            <h3>Results</h3>
-            <p>View Election Results</p>
-        </div>
+<li><a href="dashboard.html">Dashboard</a></li>
 
-    </div>
+<li><a href="polls.html">Polls</a></li>
+
+<li><a href="results.html">Results</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
 
 </div>
 
+</header>
+
+<section class="hero">
+
+<h1>
+Resident Dashboard
+</h1>
+
+<p>
+Manage surveys, elections and society activities
+</p>
+
+</section>
+
+<section class="dashboard">
+
+<h1 class="dashboard-title">
+Dashboard Overview
+</h1>
+
+<div class="dashboard-cards">
+
+<div class="card">
+
+<h2>Active Surveys</h2>
+
+<p>5 Surveys Available</p>
+
+</div>
+
+<div class="card">
+
+<h2>Active Polls</h2>
+
+<p>4 Elections Running</p>
+
+</div>
+
+<div class="card">
+
+<h2>Candidates</h2>
+
+<p>12 Registered Candidates</p>
+
+</div>
+
+<div class="card">
+
+<h2>Results</h2>
+
+<p>Latest Election Results</p>
+
+</div>
+
+</div>
+
+<div class="announcements">
+
+<h2>
+Recent Announcements
+</h2>
+
+<ul>
+
+<li>President Election starts from 10 May 2026</li>
+
+<li>Water supply maintenance on Sunday</li>
+
+<li>Society cultural event this weekend</li>
+
+<li>Parking rules updated for residents</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Society Survey & Election Management System
+</p>
+
+</footer>
+
 </body>
+
 </html>
+```

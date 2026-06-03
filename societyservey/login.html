@@ -1,34 +1,283 @@
+```html id="x8m3ta"
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           GOOGLE FONT
+        ========================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* =========================
+           GLOBAL STYLING
+        ========================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(rgba(30,58,138,0.75),
+            rgba(37,99,235,0.75)),
+            url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200') center/cover;
+            overflow:hidden;
+        }
+
+        /* =========================
+           LOGIN CONTAINER
+        ========================== */
+
+        .login-container{
+            width:100%;
+            max-width:420px;
+            background : white;
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(18, 9, 9, 0.2);
+            border-radius:22px;
+            padding:40px;
+            box-shadow:0 10px 35px rgba(0,0,0,0.2);
+            animation:fadeUp 1s ease;
+        }
+
+        /* =========================
+           LOGIN TITLE
+        ========================== */
+
+        .login-container h1{
+            text-align:center;
+            color:rgb(22, 172, 67);
+            margin-bottom:10px;
+            font-size:38px;
+        }
+
+        .login-container p{
+            text-align:center;
+            color:#2cdf3b;
+            margin-bottom:30px;
+            font-size:15px;
+        }
+
+        /* =========================
+           FORM
+        ========================== */
+
+        form{
+            display:flex;
+            flex-direction:column;
+        }
+
+        /* INPUT BOX */
+
+        .input-box{
+            position:relative;
+            margin-bottom:22px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:15px 20px;
+            border:none;
+            outline:none;
+            border-radius:12px;
+            background:rgba(201, 223, 29, 0.18);
+            color:rgb(34, 216, 92);
+            font-size:15px;
+            transition:0.3s;
+        }
+
+        .input-box input::placeholder{
+            color:#1b5197;
+        }
+
+        .input-box input:focus{
+            background:rgba(255,255,255,0.25);
+            transform:scale(1.02);
+        }
+
+        /* =========================
+           LOGIN BUTTON
+        ========================== */
+
+        .login-btn{
+            padding:14px;
+            border:none;
+            border-radius:12px;
+            background:white;
+            color:#2563eb;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.4s;
+        }
+
+        .login-btn:hover{
+            transform:translateY(-4px);
+            background:#dbeafe;
+        }
+
+        /* =========================
+           LINKS
+        ========================== */
+
+        .links{
+            margin-top:20px;
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+
+        .links a{
+            color:white;
+            text-decoration:none;
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        .links a:hover{
+            color:#dbeafe;
+            text-decoration:underline;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        @keyframes fadeUp{
+
+            from{
+                opacity:0;
+                transform:translateY(50px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media(max-width:768px){
+
+            .login-container{
+                width:90%;
+                padding:35px 25px;
+            }
+
+            .login-container h1{
+                font-size:32px;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .login-container{
+                padding:30px 20px;
+            }
+
+            .login-container h1{
+                font-size:28px;
+            }
+
+            .links{
+                flex-direction:column;
+                align-items:center;
+            }
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<div class="form-container">
+    <!-- =========================
+         LOGIN CONTAINER
+    ========================== -->
 
-    <h2>Resident Login</h2>
+    <div class="login-container">
 
-    <form>
+        <h1>
+            Resident Login
+        </h1>
 
-        <input type="text" placeholder="Email or Mobile Number" required>
+        <p>
+            Access your society dashboard and participate in elections
+        </p>
 
-        <input type="password" placeholder="Password" required>
+        <!-- LOGIN FORM -->
 
-        <button type="submit">Login</button>
+        <form>
 
-    </form>
+            <!-- EMAIL -->
 
-    <br>
+            <div class="input-box">
 
-    <a href="#">Forgot Password?</a>
+                <input type="text"
+                placeholder="Email or Mobile Number"
+                required>
 
-    <br><br>
+            </div>
 
-    <a href="register.html">New User? Register</a>
+            <!-- PASSWORD -->
 
-</div>
+            <div class="input-box">
+
+                <input type="password"
+                placeholder="Password"
+                required>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button type="submit" class="login-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <!-- LINKS -->
+
+        <div class="links">
+
+            <a href="#">
+                Forgot Password?
+            </a>
+
+            <a href="register.html">
+                Register Now
+            </a>
+
+        </div>
+
+    </div>
 
 </body>
+
 </html>
+```

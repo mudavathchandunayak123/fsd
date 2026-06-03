@@ -1,58 +1,562 @@
+```html id="q7n2ke"
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Polls</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Society Polls</title>
+
+    <!-- CSS FILE -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- INTERNAL CSS -->
+
+    <style>
+
+        /* =========================
+           GOOGLE FONT
+        ========================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* =========================
+           GLOBAL STYLING
+        ========================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+            overflow-x:hidden;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header{
+            width:100%;
+            background:linear-gradient(135deg,#1e3a8a,#2563eb);
+            padding:18px 8%;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            font-weight:700;
+        }
+
+        nav ul{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#dbeafe;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero{
+            height:60vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            background:linear-gradient(rgba(30,58,138,0.7),
+            rgba(37,99,235,0.7)),
+            url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200') center/cover;
+            padding:20px;
+        }
+
+        .hero h1{
+            font-size:55px;
+            margin-bottom:20px;
+            animation:slideDown 1s ease;
+        }
+
+        .hero p{
+            font-size:20px;
+            max-width:700px;
+            margin-bottom:30px;
+            animation:fadeIn 2s ease;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:14px 30px;
+            background:white;
+            color:#2563eb;
+            border-radius:40px;
+            text-decoration:none;
+            font-weight:600;
+            transition:0.4s;
+        }
+
+        .btn:hover{
+            transform:translateY(-5px);
+            background:#dbeafe;
+        }
+
+        /* =========================
+           POLLS SECTION
+        ========================== */
+
+        .polls-section{
+            width:90%;
+            margin:70px auto;
+        }
+
+        .polls-title{
+            text-align:center;
+            font-size:42px;
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        .polls-subtitle{
+            text-align:center;
+            color:#555;
+            margin-bottom:50px;
+            font-size:18px;
+        }
+
+        /* =========================
+           POLL CARDS GRID
+        ========================== */
+
+        .poll-cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:35px;
+        }
+
+        /* =========================
+           POLL CARD
+        ========================== */
+
+        .poll-card{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            transition:0.4s ease;
+            position:relative;
+            overflow:hidden;
+            animation:fadeUp 1s ease;
+        }
+
+        .poll-card::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:6px;
+            background:linear-gradient(90deg,#2563eb,#1e3a8a);
+        }
+
+        .poll-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 18px 35px rgba(0,0,0,0.15);
+        }
+
+        .poll-card h2{
+            color:#1e3a8a;
+            margin-bottom:18px;
+            font-size:28px;
+        }
+
+        .poll-card p{
+            color:#555;
+            margin-bottom:12px;
+            line-height:1.7;
+        }
+
+        /* =========================
+           STATUS BADGES
+        ========================== */
+
+        .status{
+            display:inline-block;
+            padding:8px 18px;
+            border-radius:30px;
+            font-size:14px;
+            font-weight:600;
+            margin-top:10px;
+        }
+
+        .active{
+            background:#dcfce7;
+            color:#166534;
+        }
+
+        .closed{
+            background:#fee2e2;
+            color:#991b1b;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .vote-btn{
+            display:inline-block;
+            margin-top:20px;
+            background:linear-gradient(135deg,#2563eb,#1e3a8a);
+            color:white;
+            text-decoration:none;
+            padding:12px 24px;
+            border-radius:40px;
+            font-weight:600;
+            transition:0.4s;
+        }
+
+        .vote-btn:hover{
+            transform:scale(1.05);
+            background:linear-gradient(135deg,#1d4ed8,#1e40af);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer{
+            background:#1e3a8a;
+            color:white;
+            text-align:center;
+            padding:25px;
+            margin-top:50px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes slideDown{
+
+            from{
+                transform:translateY(-50px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeUp{
+
+            from{
+                transform:translateY(50px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media(max-width:992px){
+
+            .poll-cards{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .hero h1{
+                font-size:45px;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .poll-cards{
+                grid-template-columns:1fr;
+            }
+
+            .hero h1{
+                font-size:36px;
+            }
+
+            .hero p{
+                font-size:17px;
+            }
+
+            .polls-title{
+                font-size:32px;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .hero h1{
+                font-size:28px;
+            }
+
+            .poll-card{
+                padding:22px;
+            }
+
+            .vote-btn{
+                width:100%;
+                text-align:center;
+            }
+        }
+
+    </style>
+
 </head>
+
 <body>
-```html id="h2x8qp"
-<div class="cards">
 
-    <div class="card">
-        <h3>President Election</h3>
+    <!-- HEADER -->
 
-        <p><b>Start:</b> 10 May 2026</p>
+    <header>
 
-        <p><b>End:</b> 20 May 2026</p>
+        <div class="navbar">
 
-        <span class="status active">Active</span>
+            <div class="logo">
+                Society Survey
+            </div>
 
-        <br><br>
+            <nav>
 
-        <a href="#" class="vote-btn">Vote Now</a>
-    </div>
+                <ul>
 
-    <div class="card">
-        <h3>Secretary Election</h3>
+                    <li><a href="index.html">Home</a></li>
 
-        <p><b>Start:</b> 12 May 2026</p>
+                    <li><a href="dashboard.html">Dashboard</a></li>
 
-        <p><b>End:</b> 22 May 2026</p>
+                    <li><a href="survey.html">Survey</a></li>
 
-        <span class="status active">Active</span>
+                    <li><a href="polls.html">Polls</a></li>
 
-        <br><br>
+                    <li><a href="results.html">Results</a></li>
 
-        <a href="#" class="vote-btn">Vote Now</a>
-    </div>
+                    <li><a href="contact.html">Contact</a></li>
 
-    <div class="card">
-        <h3>Treasurer Election</h3>
+                </ul>
 
-        <p><b>Start:</b> 15 May 2026</p>
+            </nav>
 
-        <p><b>End:</b> 25 May 2026</p>
+        </div>
 
-        <span class="status closed">Closed</span>
+    </header>
 
-        <br><br>
+    <!-- HERO -->
 
-        <a href="#" class="vote-btn">Closed</a>
-    </div>
+    <section class="hero">
 
-</div>
-```
+        <h1>
+            Society Election Polls
+        </h1>
 
+        <p>
+            Participate in elections and help select responsible representatives
+            for your residential society.
+        </p>
+
+        <a href="#polls" class="btn">
+            Explore Polls
+        </a>
+
+    </section>
+
+    <!-- POLLS SECTION -->
+
+    <section class="polls-section" id="polls">
+
+        <h1 class="polls-title">
+            Active Society Elections
+        </h1>
+
+        <p class="polls-subtitle">
+            Vote wisely and help improve society management
+        </p>
+
+        <!-- POLL CARDS -->
+
+        <div class="poll-cards">
+
+            <!-- PRESIDENT -->
+
+            <div class="poll-card">
+
+                <h2>President Election</h2>
+
+                <p>
+                    Vote for the president who will supervise and lead society operations.
+                </p>
+
+                <p><strong>Start:</strong> 10 May 2026</p>
+
+                <p><strong>End:</strong> 20 May 2026</p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="vote.html" class="vote-btn">
+                    Vote Now
+                </a>
+
+            </div>
+
+            <!-- SECRETARY -->
+
+            <div class="poll-card">
+
+                <h2>Secretary Election</h2>
+
+                <p>
+                    Elect the secretary responsible for society communication and records.
+                </p>
+
+                <p><strong>Start:</strong> 12 May 2026</p>
+
+                <p><strong>End:</strong> 22 May 2026</p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="vote.html" class="vote-btn">
+                    Vote Now
+                </a>
+
+            </div>
+
+            <!-- TREASURER -->
+
+            <div class="poll-card">
+
+                <h2>Treasurer Election</h2>
+
+                <p>
+                    Select the treasurer who manages society funds and accounts.
+                </p>
+
+                <p><strong>Start:</strong> 15 May 2026</p>
+
+                <p><strong>End:</strong> 25 May 2026</p>
+
+                <span class="status closed">
+                    Closed
+                </span>
+
+                <br>
+
+                <a href="#" class="vote-btn">
+                    Closed
+                </a>
+
+            </div>
+
+            <!-- CULTURAL -->
+
+            <div class="poll-card">
+
+                <h2>Cultural Committee Head</h2>
+
+                <p>
+                    Vote for the representative who organizes festivals and events.
+                </p>
+
+                <p><strong>Start:</strong> 18 May 2026</p>
+
+                <p><strong>End:</strong> 28 May 2026</p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="vote.html" class="vote-btn">
+                    Vote Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Society Survey & Representative Election Management System
+        </p>
+
+    </footer>
 
 </body>
+
 </html>
+```
