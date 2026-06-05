@@ -1,0 +1,183 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)),
+                url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+/* Carousel */
+.carousel-item img {
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.carousel-caption h1,
+.carousel-caption h2 {
+    font-weight: bold;
+}
+
+/* Section Titles */
+section h2 {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+/* Buttons */
+.btn-primary {
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* Registration Form */
+form .form-control,
+form .form-select {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+    box-shadow: 0 0 10px rgba(13,110,253,0.25);
+}
+
+/* Contact Page */
+textarea {
+    resize: none;
+}
+
+/* Faculty Cards */
+.card-body h5 {
+    font-weight: bold;
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #212529;
+}
+
+footer h5 {
+    margin-bottom: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ffc107 !important;
+}
+
+/* Map Placeholder */
+.map-placeholder {
+    background: #6c757d;
+    color: white;
+    height: 250px;
+    border-radius: 10px;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 15px;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+
+    .carousel-item img {
+        height: 300px !important;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

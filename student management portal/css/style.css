@@ -1,0 +1,115 @@
+/* General Styling */
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Hero Section */
+
+.hero{
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url('https://picsum.photos/1400/600');
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1{
+    font-weight: bold;
+}
+
+.hero p{
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Cards */
+
+.card{
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+}
+
+/* Statistics Cards */
+
+.stat-card{
+    border-left: 5px solid #0d6efd;
+}
+
+/* Profile */
+
+.profile-img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #0d6efd;
+}
+
+/* Footer */
+
+footer{
+    margin-top: 40px;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover{
+    color: #0dcaf0;
+}
+
+/* Forms */
+
+.form-control:focus{
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+/* Table */
+
+.table th{
+    text-align: center;
+}
+
+.table td{
+    vertical-align: middle;
+}
+
+/* Responsive */
+
+@media(max-width:576px){
+
+.hero{
+    padding: 80px 15px;
+}
+
+.hero h1{
+    font-size: 2rem;
+}
+
+.card{
+    margin-bottom: 20px;
+}
+
+}
